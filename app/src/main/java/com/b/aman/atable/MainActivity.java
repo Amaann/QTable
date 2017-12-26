@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.putExtra(Intent.EXTRA_TEXT,
-                        "Hey checkout this useful app for Math Tables learning :https://play.google.com/store/apps/details?id=com.example.aman.table");
+                        "Hey checkout this useful app for Math Tables learning :https://play.google.com/store/apps/details?id=com.b.aman.atable");
                 shareIntent.setType("text/plain");
                 startActivity(shareIntent);
             }
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent likeIntent = new Intent(Intent.ACTION_VIEW);
-                likeIntent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.example.aman.table"));
+                likeIntent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.b.aman.atable"));
                 startActivity(likeIntent);
 
 
