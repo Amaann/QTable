@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.b.aman.atable"  android:versionCode="102" android:versionName="1.0.2">
+    package="com.b.aman.atable"  android:versionCode="106" android:versionName="1.0.6">
 
 
     <uses-permission
@@ -11,8 +11,8 @@
         android:name="com.example.aman.table.permission.C2D_MESSAGE"
         tools:node="remove" />
     <application
-
-
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_foreground"
         android:label="@string/app_icon_name"
