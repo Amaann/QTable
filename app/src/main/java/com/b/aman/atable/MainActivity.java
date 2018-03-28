@@ -1,32 +1,44 @@
 package com.b.aman.atable;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import io.fabric.sdk.android.Fabric;
 
 
+
+
 public class MainActivity extends AppCompatActivity {
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
 
         setContentView(R.layout.activity_main);
 
+        homeWelcomeMassege();
         setLogo();
 
         Button btPractice = (findViewById(R.id.bt_practice));
@@ -97,6 +109,45 @@ public class MainActivity extends AppCompatActivity {
             Glide.with(this).load(getResources().getDrawable(R.drawable.welcome1)).dontAnimate().fitCenter().into(imageViewBg);
         } catch (Exception e) {
         }
+    }
+
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                MainActivity.this);
+
+        // set title
+        alertDialogBuilder.setTitle("Exit");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Do you really want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // if this button is clicked, close
+                        // current activity
+                        MainActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
+
+    public void homeWelcomeMassege(){
+
+        Toast.makeText(this, "Welcome to aTable", Toast.LENGTH_SHORT).show();
+
     }
 
 }

@@ -1,10 +1,12 @@
 package com.b.aman.atable;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,7 +65,7 @@ public class DetailActivity extends AppCompatActivity implements PopupMenu.OnMen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-        tfont = (TextView) findViewById(R.id.tv_table_data);
+        tfont =  findViewById(R.id.tv_table_data);
         Typeface MyFont = Typeface.createFromAsset(getAssets(), "fonts/chalk.ttf");
         tfont.setTypeface(MyFont);
 
@@ -76,7 +78,7 @@ public class DetailActivity extends AppCompatActivity implements PopupMenu.OnMen
             }
         });
 
-        tv_speech = (TextView) findViewById(R.id.tv_table_data);
+        tv_speech =  findViewById(R.id.tv_table_data);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,6 +208,7 @@ public class DetailActivity extends AppCompatActivity implements PopupMenu.OnMen
 
         return false;
     }
+
 }
 
 
